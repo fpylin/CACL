@@ -1,0 +1,68 @@
+Example usage:
+
+INPUT:
+./predict-catype ALK:V ATM:V EPHA5:V ERCC4:V FANCC:V RB1:V SLIT2:V STAG2:V TP53:V MYC:A 
+./predict-catype APC:V FAM123B:V KRAS:V PIK3R1:V TP53:V
+./predict-catype CDKN2A:D TERT:V TP53:V KDR:A KIT:A PDGFRA:A KDM5A:V NF1:V
+./predict-catype CHEK2:V PIK3CA:V TP53:V MYC:A 
+./predict-catype ERBB2:V TP53:V 
+./predict-catype FGFR2:V IDH1:V
+./predict-catype FGFR2:V IDH1:V 
+./predict-catype FGFR2:V IDH1:V 2>&1 | less
+./predict-catype FGFR2:V IDH1:V | less
+./predict-catype GID4:A NCOR1:A RB1:D
+./predict-catype IDH1:V 
+./predict-catype IDH1:V FGFR2:V
+./predict-catype MEN1:V TP53:V ARFRP1:A AURKA:A FGF12:A GNAS:A PIK3CA:A PRKCI:A SOX2:A TERC:A ZNF217:A
+./predict-catype MSH6:V RAD54L:V TP53:V ARID1A:V CDKN2A:D CDKN2B:D MTAP:D
+./predict-catype MSH6:V RAD54L:V TP53:V ARID1A:V CDKN2A:D CDKN2B:D MTAP:D STK11:D TP53:V
+./predict-catype ARID1A:V GPS2:V MAP2K4:V NRAS:V PIK3R1:V PTPN11:V TP53:V
+./predict-catype ARID1A:V GPS2:V MAP2K4:V NRAS:V PIK3R1:V PTPN11:V TP53:V
+./predict-catype ARID1A:V GPS2:V MAP2K4:V PIK3R1:V PTPN11:V TP53:V
+./predict-catype ARID1A:V KRAS:V PPP2R2A:V TP53:V
+./predict-catype ARID5B:V BAP1:V CDK4:V LRP1B:V MED12:V TP53:V 
+./predict-catype BAP1:V NRAS:V
+./predict-catype BRAF:V AKT1:V
+./predict-catype BRAF:V AKT1:V 
+./predict-catype BRAF:V AKT1:V TP53:V
+./predict-catype BRAF:V AKT1:V TP53:V APC:V
+./predict-catype BRAF:V MLH1:V RB1:V TP53:V CCND3:A ERBB2:A FGF10:A RICTOR:A VEGFA:A
+./predict-catype BRAF:V MLH1:V RB1:V TP53:V CCND3:A FGF10:A RICTOR:A VEGFA:A
+./predict-catype CDKN1B:V KDM6A:V TP53:V KRAS:A
+./predict-catype CDKN2A:D TERT:V TP53:V KDR:A KIT:A PDGFRA:A KDM5A:V NF1:V
+./predict-catype FGFR3:F
+./predict-catype FGFR3:F TACC3:F 
+./predict-catype FGFR3:F TACC3:F AMER1:V ARID1A:V MGA:V BRIP1:A PPM1D:A
+./predict-catype GNAS:V NF1:V NFE2L2:V NRAS:V TP53:V
+./predict-catype GNAS:V NF1:V NFE2L2:V NRAS:V TP53:V 
+./predict-catype GNAS:V NF1:V NFE2L2:V NRAS:V TP53:V MYC:A 
+./predict-catype GNAS:V NF1:V NFE2L2:V NRAS:V TP53:V MYC:A NFKBIA:A NKX2-1:A RAD21:A BCL2L2:A
+./predict-catype KMT2D:V KRAS:V PPP2R1A:V TP53:V
+./predict-catype MEN1:V TP53:V ARFRP1:A AURKA:A FGF12:A GNAS:A PIK3CA:A PRKCI:A SOX2:A TERC:A ZNF217:A
+./predict-catype PIK3R1:V CCND2:V
+./predict-catype TP53:V KRAS:A
+
+
+OUTPUT:
+
+From first-level models:
+Probability  <TAB>   Cancer type C
+P(Y=C, X) - absolute probability estimated from ridge regression.
+
+Or from submodels:
+|- Conditional probability  <TAB>  |- In known cancer type group G|Predicted cancer type
+P(Y=C, X|C \in G) - absolute probability estimated from ridge regression.
+
+
+0.987255        Gastrointestinal cancer
+|- 0.895          |- Gastrointestinal cancer|Colorectal cancer
+|- 0.878          |- Gastrointestinal cancer|Colorectal adenocarcinoma
+|- 0.088          |- Gastrointestinal cancer|Pancreatic cancer
+|- 0.080          |- Gastrointestinal cancer|Pancreatic adenocarcinoma
+0.905845        Colorectal cancer
+|- 0.979          |- Colorectal cancer|Colorectal adenocarcinoma
+0.890941        Colorectal adenocarcinoma
+0.089744        Pancreatic cancer
+0.080310        Pancreatic adenocarcinoma
+
+END
