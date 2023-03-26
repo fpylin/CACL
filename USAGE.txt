@@ -1,4 +1,11 @@
-Example usage:
+REQUIREMENT:
+
+Python3 - import pandas, pickle, SciKit - sklearn.impute, sklearn.linear_model
+
+
+BEFORE RUNNING:
+cd src/
+chmod +x ./predict-catype ./mlev.pl ./CL-SciKit.pl
 
 INPUT:
 ./predict-catype ALK:V ATM:V EPHA5:V ERCC4:V FANCC:V RB1:V SLIT2:V STAG2:V TP53:V MYC:A 
@@ -7,9 +14,6 @@ INPUT:
 ./predict-catype CHEK2:V PIK3CA:V TP53:V MYC:A 
 ./predict-catype ERBB2:V TP53:V 
 ./predict-catype FGFR2:V IDH1:V
-./predict-catype FGFR2:V IDH1:V 
-./predict-catype FGFR2:V IDH1:V 2>&1 | less
-./predict-catype FGFR2:V IDH1:V | less
 ./predict-catype GID4:A NCOR1:A RB1:D
 ./predict-catype IDH1:V 
 ./predict-catype IDH1:V FGFR2:V
@@ -23,7 +27,6 @@ INPUT:
 ./predict-catype ARID5B:V BAP1:V CDK4:V LRP1B:V MED12:V TP53:V 
 ./predict-catype BAP1:V NRAS:V
 ./predict-catype BRAF:V AKT1:V
-./predict-catype BRAF:V AKT1:V 
 ./predict-catype BRAF:V AKT1:V TP53:V
 ./predict-catype BRAF:V AKT1:V TP53:V APC:V
 ./predict-catype BRAF:V MLH1:V RB1:V TP53:V CCND3:A ERBB2:A FGF10:A RICTOR:A VEGFA:A
